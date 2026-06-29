@@ -4,443 +4,569 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Horecast | Authentic Creative Content</title>
+    
+    <!-- Premium Fonts voor een rauwe, redactionele & cinematische vibe -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;700&family=Space+Mono&display=swap" rel="stylesheet">
+    
     <style>
-        /* Modern Dark/Foodservice Design System */
+        /* Cineast & Art Director Design System */
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
         
         :root {
-            --bg-dark: #0f172a;
-            --bg-card: #1e293b;
-            --accent: #f59e0b; /* Culinair goud/amber tint */
-            --text-light: #f8fafc;
-            --text-muted: #94a3b8;
+            --bg-deep: #05070a;      /* Absoluut bioscoopzwart */
+            --bg-surface: #0c1017;   /* Subtiel lichter zwart voor diepte */
+            --accent: #f59e0b;       /* Culinair / Set-goud */
+            --accent-dim: rgba(245, 158, 11, 0.15);
+            --text-main: #f8fafc;
+            --text-dark: #475569;
+            --font-display: 'Space Grotesk', sans-serif;
+            --font-mono: 'Space Mono', monospace;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-light);
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            font-family: var(--font-display);
             line-height: 1.6;
+            letter-spacing: -0.02em;
+            overflow-x: hidden;
         }
 
-        /* Navigatie aangepast voor het zwarte logo */
+        /* Navigatie: Stark, Minimal & Architectonisch */
         header {
-            background: rgba(255, 255, 255, 0.95); /* Licht contrast voor het zwarte logo */
-            backdrop-filter: blur(10px);
-            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.99);
+            padding: 1.5rem 4rem;
             position: sticky;
             top: 0;
             z-index: 100;
-            border-bottom: 1px solid #cbd5e1;
+            border-bottom: 1px solid #000;
         }
 
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1200px;
+            max-width: 1600px;
             margin: 0 auto;
         }
 
-        /* Logo styling */
-        nav .logo-container {
-            display: flex;
-            align-items: center;
-        }
-
         nav .logo-img {
-            height: 35px; /* Perfecte hoogte voor de navigatiebalk */
+            height: 28px;
             width: auto;
             display: block;
+            filter: contrast(200%) brightness(0); /* Puur zwart logo */
         }
 
         nav ul {
             display: flex;
             list-style: none;
-        }
-
-        nav ul li {
-            margin-left: 25px;
+            gap: 3.5rem;
         }
 
         nav ul li a {
-            color: #475569; /* Donkere tekstkleur op de lichte balk */
+            color: #556375;
             text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
         }
 
         nav ul li a:hover, nav ul li a.active {
-            color: #0f172a;
-            border-bottom: 2px solid var(--accent);
-            padding-bottom: 4px;
+            color: #000;
+            font-weight: bold;
         }
 
-        /* Hero / Showreel Sectie met eigen afbeelding */
+        /* Hero: De "Framing Viewport" - Alsof je door een lens kijkt */
         .hero {
             position: relative;
-            padding: 9rem 2rem;
-            text-align: center;
-            background: linear-gradient(180deg, rgba(15,23,42,0.85) 0%, rgba(15,23,42,1) 100%), 
+            height: 95vh;
+            min-height: 700px;
+            display: flex;
+            align-items: flex-end;
+            padding: 6rem 4rem;
+            background: linear-gradient(to top, rgba(5,7,10,1) 15%, rgba(5,7,10,0.4) 100%), 
                         url('hero-horecast.jpg');
             background-size: cover;
             background-position: center;
         }
 
+        /* Abstracte camera overlays voor artwork gevoel */
+        .hero::before {
+            content: '[ REC • 4K ]';
+            position: absolute;
+            top: 4rem;
+            left: 4rem;
+            font-family: var(--font-mono);
+            color: var(--accent);
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+        }
+
+        .hero::after {
+            content: 'STORY_01 // 2026';
+            position: absolute;
+            top: 4rem;
+            right: 4rem;
+            font-family: var(--font-mono);
+            color: rgba(255,255,255,0.4);
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            position: relative;
+            z-index: 10;
+        }
+
         .hero h1 {
-            font-size: 3.8rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-            letter-spacing: -1px;
+            font-size: 8rem;
+            font-weight: 700;
+            line-height: 0.85;
+            letter-spacing: -0.05em;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(255,255,255,0.8);
         }
 
         .hero .tagline {
-            font-size: 1.4rem;
+            font-family: var(--font-mono);
+            font-size: 1rem;
             color: var(--accent);
-            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 6px;
             margin-bottom: 1.5rem;
+            display: block;
         }
 
         .hero p {
-            font-size: 1.25rem;
-            color: var(--text-muted);
-            max-width: 700px;
-            margin: 0 auto 2.5rem;
+            font-size: 1.5rem;
+            color: #94a3b8;
+            max-width: 650px;
+            font-weight: 300;
+            line-height: 1.5;
+            margin-bottom: 3rem;
         }
 
         .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
             background: var(--accent);
-            color: #0f172a;
-            padding: 0.8rem 2rem;
+            color: var(--bg-deep);
+            padding: 1.2rem 3rem;
             font-weight: 700;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
             text-decoration: none;
-            border-radius: 4px;
-            transition: transform 0.2s, background 0.3s;
-            display: inline-block;
+            transition: all 0.3s ease;
         }
 
         .cta-button:hover {
-            transform: translateY(-2px);
-            background: #d97706;
+            background: #fff;
+            transform: translateY(-3px);
+        }
+
+        /* Brands Marquee / Lopende band stijl */
+        .clients-section {
+            background: #000;
+            padding: 3rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            color: rgba(255,255,255,0.2);
+            animation: marquee 25s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-50%, 0, 0); }
         }
 
         /* Secties algemeen */
         .container {
-            max-width: 1200px;
-            margin: 6rem auto;
-            padding: 0 2rem;
+            max-width: 1400px;
+            margin: 14rem auto;
+            padding: 0 4rem;
         }
 
-        .section-title {
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin-bottom: 3rem;
-            text-align: center;
-        }
-
-        .section-title span {
-            color: var(--accent);
-        }
-
-        /* Portfolio / Video Grid */
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .video-card {
-            background: var(--bg-card);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
-            border: 1px solid #334155;
-            transition: transform 0.3s;
-        }
-
-        .video-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .video-placeholder {
-            width: 100%;
-            height: 220px;
-            background: #1e293b;
-            position: relative;
+        .section-header-art {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            border-bottom: 1px solid #334155;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 6rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 2rem;
         }
 
-        .video-placeholder::before {
-            content: '▶';
-            font-size: 3rem;
+        .section-title-art {
+            font-size: 4rem;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .section-title-art span {
+            color: transparent;
+            -webkit-text-stroke: 1px var(--accent);
+        }
+
+        .section-meta-art {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--text-dark);
+            letter-spacing: 2px;
+        }
+
+        /* Portfolio Gallery: Asymmetrische Expositie indeling */
+        .portfolio-art-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 4rem;
+        }
+
+        .art-card {
+            grid-column: span 6;
+            position: relative;
+            background: var(--bg-surface);
+            transition: all 0.5s ease;
+        }
+
+        /* Verspringen van de kaarten voor een gallery look */
+        .art-card:nth-child(2) {
+            grid-column: span 5;
+            grid-column-start: 8;
+            margin-top: 8rem;
+        }
+
+        .art-card:nth-child(3) {
+            grid-column: span 7;
+            margin-top: -4rem;
+        }
+
+        .art-video-frame {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .art-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(40%) contrast(110%);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .art-card:hover .art-img {
+            filter: grayscale(0%) contrast(100%);
+            transform: scale(1.05);
+        }
+
+        .art-card-details {
+            padding: 2rem 0;
+        }
+
+        .art-card-num {
+            font-family: var(--font-mono);
             color: var(--accent);
-            opacity: 0.8;
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
-
-        .video-card:hover .video-placeholder::before {
-            transform: scale(1.1);
-        }
-
-        .video-info {
-            padding: 1.5rem;
-        }
-
-        .video-info h3 {
-            font-size: 1.3rem;
+            font-size: 0.8rem;
+            display: block;
             margin-bottom: 0.5rem;
         }
 
-        .video-info p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        /* Over Horecast / Expertise */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-text h3 {
+        .art-card-details h3 {
             font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: var(--accent);
+            text-transform: uppercase;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
         }
 
-        .about-text p {
-            margin-bottom: 1.5rem;
-            color: var(--text-muted);
-            font-size: 1.1rem;
+        .art-card-details p {
+            color: #64748b;
+            font-weight: 300;
+            max-width: 450px;
         }
 
-        /* Contact Sectie met info & formulier */
-        .contact-grid {
+        /* Over Horecast: Rauw Redactioneel */
+        .about-art-layout {
             display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 4rem;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 8rem;
+            align-items: flex-start;
         }
 
-        .contact-info h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
+        .about-art-sticky-title {
+            position: sticky;
+            top: 8rem;
         }
 
-        .contact-info p {
-            color: var(--text-muted);
+        .about-art-sticky-title h2 {
+            font-size: 4.5rem;
+            text-transform: uppercase;
+            line-height: 0.95;
             margin-bottom: 2rem;
         }
 
-        .contact-details {
-            list-style: none;
-        }
-
-        .contact-details li {
-            margin-bottom: 1.2rem;
-            font-size: 1.1rem;
-            display: flex;
-            align-items: center;
-        }
-
-        .contact-details li a {
-            color: var(--text-light);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .contact-details li a:hover {
-            color: var(--accent);
-        }
-
-        .contact-details strong {
-            color: var(--accent);
-            width: 100px;
-            display: inline-block;
-        }
-
-        .contact-box {
-            background: var(--bg-card);
-            padding: 3rem;
-            border-radius: 8px;
-            border: 1px solid #334155;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: var(--text-light);
-            font-weight: 500;
-        }
-
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 0.8rem;
-            background: var(--bg-dark);
-            border: 1px solid #475569;
-            border-radius: 4px;
-            color: #fff;
-            font-size: 1rem;
-        }
-
-        .form-group input:focus, .form-group textarea:focus {
-            outline: none;
-            border-color: var(--accent);
-        }
-
-        .submit-btn {
-            background: var(--accent);
-            color: #0f172a;
-            border: none;
-            padding: 1rem;
-            width: 100%;
-            font-size: 1.1rem;
-            font-weight: 700;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .submit-btn:hover {
-            background: #d97706;
-        }
-
-        /* Client Tickers / Logos Text */
-        .clients-section {
-            background: #020617;
-            padding: 3rem 2rem;
-            text-align: center;
-            border-top: 1px solid #1e293b;
-            border-bottom: 1px solid #1e293b;
-        }
-
-        .clients-section p {
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.85rem;
-        }
-
-        .client-logos {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 3.5rem;
-            flex-wrap: wrap;
+        .about-art-text p {
             font-size: 1.3rem;
+            font-weight: 300;
+            color: #cbd5e1;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+
+        .about-art-text p strong {
+            color: var(--accent);
+            font-weight: 400;
+        }
+
+        .about-art-visual {
+            margin-top: 4rem;
+            border-left: 1px solid var(--accent);
+            padding-left: 2rem;
+        }
+
+        .about-art-visual img {
+            width: 100%;
+            filter: grayscale(100%);
+            transition: filter 0.5s;
+        }
+
+        .about-art-visual:hover img {
+            filter: grayscale(0%);
+        }
+
+        /* Contact & Rauw Typografisch Formulier */
+        .contact-art-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 8rem;
+        }
+
+        .contact-art-info h3 {
+            font-size: 3rem;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            line-height: 1;
+        }
+
+        .contact-art-details-list {
+            list-style: none;
+            margin-top: 4rem;
+        }
+
+        .contact-art-details-list li {
+            margin-bottom: 2rem;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+        }
+
+        .contact-art-details-list strong {
+            color: var(--accent);
+            display: block;
+            margin-bottom: 0.2rem;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+        }
+
+        .contact-art-details-list a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        .contact-art-box {
+            background: transparent;
+            padding: 0;
+        }
+
+        .form-art-group {
+            margin-bottom: 3.5rem;
+        }
+
+        .form-art-group label {
+            display: block;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-art-group input, .form-art-group textarea {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            color: #fff;
+            padding: 1rem 0;
+            font-size: 1.25rem;
+            font-family: var(--font-display);
+            transition: all 0.3s ease;
+        }
+
+        .form-art-group input:focus, .form-art-group textarea:focus {
+            outline: none;
+            border-bottom-color: #fff;
+        }
+
+        .submit-art-btn {
+            background: #fff;
+            color: #000;
+            border: none;
+            padding: 1.5rem;
+            width: 100%;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
             font-weight: 700;
-            color: #475569;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-art-btn:hover {
+            background: var(--accent);
+            color: var(--bg-deep);
         }
 
         /* Footer */
         footer {
-            background: #020617;
-            text-align: center;
-            padding: 3rem;
-            color: var(--text-muted);
-            font-size: 0.9rem;
+            padding: 6rem 4rem;
+            background: #000;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            display: flex;
+            justify-content: space-between;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-dark);
         }
 
-        footer a {
-            color: var(--text-muted);
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            color: var(--accent);
-        }
-
-        /* Responsive */
-        @media (max-width: 968px) {
-            .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+        /* Responsive Design */
+        @media (max-width: 1100px) {
+            .portfolio-art-grid { display: flex; flex-direction: column; gap: 6rem; }
+            .art-card, .art-card:nth-child(2), .art-card:nth-child(3) { grid-column: span 12; margin-top: 0; }
+            .about-art-layout, .contact-art-layout { grid-template-columns: 1fr; gap: 4rem; }
+            .about-art-sticky-title { position: static; }
+            .hero h1 { font-size: 5rem; }
         }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.6rem; }
-            .hero .tagline { font-size: 1.1rem; }
-            .about-content { grid-template-columns: 1fr; gap: 2rem; }
+            header { padding: 1.5rem 2rem; }
             nav { flex-direction: column; gap: 1rem; }
-            nav ul li { margin: 0 10px; }
-            .client-logos { gap: 2rem; }
+            .hero { padding: 4rem 2rem; }
+            .hero h1 { font-size: 3.5rem; }
+            .container { margin: 8rem auto; padding: 0 2rem; }
+            .section-header-art { flex-direction: column; align-items: flex-start; gap: 1rem; }
+            .section-title-art { font-size: 2.8rem; }
+            footer { flex-direction: column; gap: 1rem; padding: 4rem 2rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header & Navigatie met Logo-afbeelding -->
+    <!-- Header & Navigatie -->
     <header>
         <nav>
             <div class="logo-container">
                 <img src="horecastAsset 31x.png" alt="Horecast Logo" class="logo-img">
             </div>
             <ul>
-                <li><a href="#home" class="active">Home</a></li>
-                <li><a href="#werk">Portfolio</a></li>
-                <li><a href="#over">Over ons</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#home" class="active">// Home</a></li>
+                <li><a href="#werk">// Portfolio</a></li>
+                <li><a href="#over">// Over ons</a></li>
+                <li><a href="#contact">// Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <!-- Hero / Intro -->
     <section id="home" class="hero">
-        <h1>Horecast</h1>
-        <div class="tagline">Authentic Creative Content</div>
-        <p>Professionele videojournalistiek, high-end contentproductie en ijzersterke storytelling. Gespecialiseerd in de foodservice- en hospitalitybranche, breed inzetbaar voor krachtige merkverhalen.</p>
-        <a href="#werk" class="cta-button">Bekijk ons werk</a>
-    </section>
-
-    <!-- Grote merken / Vertrouwen sectie -->
-    <section class="clients-section">
-        <p>Ervaring met toonaangevende merken zoals</p>
-        <div class="client-logos">
-            <span>KLM | Alcon | Remia | IBM | S. Pellegrino | Bidfood</span>
+        <div class="hero-content">
+            <span class="tagline">Authentic Creative Content</span>
+            <h1>Horecast</h1>
+            <p>Professionele videojournalistiek, high-end contentproductie en ijzersterke storytelling. Gespecialiseerd in de foodservice- en hospitalitybranche, breed inzetbaar voor krachtige merkverhalen.</p>
+            <a href="#werk" class="cta-button">
+                <span>Ontdek het werk</span>
+                <span>→</span>
+            </a>
         </div>
     </section>
 
-    <!-- Portfolio Grid met eigen afbeeldingen -->
+    <!-- Moving Brands Marquee -->
+    <section class="clients-section">
+        <div class="marquee-content">
+            KLM &nbsp;•&nbsp; Alcon &nbsp;•&nbsp; Remia &nbsp;•&nbsp; IBM &nbsp;•&nbsp; S. Pellegrino &nbsp;•&nbsp; Bidfood &nbsp;•&nbsp; KLM &nbsp;•&nbsp; Alcon &nbsp;•&nbsp; Remia &nbsp;•&nbsp; IBM &nbsp;•&nbsp; S. Pellegrino &nbsp;•&nbsp; Bidfood &nbsp;•&nbsp;
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
     <section id="werk" class="container">
-        <h2 class="section-title">Recent <span>Werk</span></h2>
-        <div class="portfolio-grid">
+        <div class="section-header-art">
+            <h2 class="section-title-art">Geselecteerd <span>Werk</span></h2>
+            <span class="section-meta-art">PROJECT_INDEX [03]</span>
+        </div>
+        
+        <div class="portfolio-art-grid">
             
-            <!-- Video Project 1 -->
-            <div class="video-card">
-                <div class="video-placeholder" style="background-image: url('portfolio-brandstory.jpg'); background-size: cover; background-position: center;"></div>
-                <div class="video-info">
-                    <h3>Brand Story / Documentaire</h3>
+            <!-- Project 1 -->
+            <div class="art-card">
+                <div class="art-video-frame">
+                    <img src="portfolio-brandstory.jpg" alt="Brand Story" class="art-img">
+                </div>
+                <div class="art-card-details">
+                    <span class="art-card-num">01 // DOCUMENTAIRE</span>
+                    <h3>Brand Story</h3>
                     <p>Diepgaande, authentieke verhalen die de essentie en passie van een merk of onderneming vangen.</p>
                 </div>
             </div>
 
-            <!-- Video Project 2 -->
-            <div class="video-card">
-                <div class="video-placeholder" style="background-image: url('portfolio-foodservice.jpg'); background-size: cover; background-position: center;"></div>
-                <div class="video-info">
+            <!-- Project 2 -->
+            <div class="art-card">
+                <div class="art-video-frame">
+                    <img src="portfolio-foodservice.jpg" alt="Foodservice" class="art-img">
+                </div>
+                <div class="art-card-details">
+                    <span class="art-card-num">02 // GASTRONOMIE</span>
                     <h3>Foodservice & Hospitality</h3>
                     <p>Cinematografische sfeerimpressies, reportages en culinaire videojournalistiek op het hoogste niveau.</p>
                 </div>
             </div>
 
-            <!-- Video Project 3 -->
-            <div class="video-card">
-                <div class="video-placeholder" style="background-image: url('portfolio-concept.jpg'); background-size: cover; background-position: center;"></div>
-                <div class="video-info">
+            <!-- Project 3 -->
+            <div class="art-card">
+                <div class="art-video-frame">
+                    <img src="portfolio-concept.jpg" alt="Concept & Regie" class="art-img">
+                </div>
+                <div class="art-card-details">
+                    <span class="art-card-num">03 // CAMPAIGN</span>
                     <h3>Concept, Regie & Edit</h3>
                     <p>Van eerste script en interviews tot de strakke montage. Corporate video's en campagnes met impact.</p>
                 </div>
@@ -451,65 +577,74 @@
 
     <!-- Over Horecast -->
     <section id="over" class="container">
-        <div class="about-content">
-            <div class="about-text">
-                <h2 style="margin-bottom: 1.5rem; font-size: 2.2rem;">Storytelling met een <span>journalistieke blik</span></h2>
-                <h3>Wie we zijn</h3>
-                <p>Horecast combineert jarenlange professionele ervaring als camera-journalist met een scherp oog voor ijzersterke content. Hoewel circa 90% van ons werk zich afspeelt in de dynamische wereld van foodservice en gastronomie, vertalen we diezelfde creativiteit en hoge productiestandaard moeiteloos naar corporate merkverhalen.</p>
-                <p>Met ervaring voor uiteenlopende A-merken—van grote spelers in de hospitality tot multinationals zoals KLM en Alcon—vangen we altijd de juiste toon. Van regie en interview tot de uiteindelijke montage: de volledige productie blijft in één hand voor een optimaal, authentiek resultaat.</p>
+        <div class="about-art-layout">
+            <div class="about-art-sticky-title">
+                <span class="section-meta-art" style="display:block; margin-bottom:1rem;">THE VISION //</span>
+                <h2>De Blik Van Binnenuit</h2>
             </div>
-            <!-- Gekoppeld aan over-horecast.jpg -->
-            <div style="border-radius: 8px; overflow: hidden; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.5);">
-                <img src="over-horecast.jpg" alt="Camera Productie" style="width: 100%; display: block;">
+            <div class="about-art-text">
+                <p>Horecast combineert jarenlange professionele ervaring als <strong>camera-journalist</strong> met een scherp oog voor ijzersterke content. Hoewel circa 90% van ons werk zich afspeelt in de dynamische wereld van foodservice en gastronomie, vertalen we diezelfde creativiteit en hoge productiestandaard moeiteloos naar corporate merkverhalen.</p>
+                <p>Met ervaring voor uiteenlopende A-merken—van grote spelers in de hospitality tot multinationals zoals KLM en Alcon—vangen we altijd de juiste toon. Van regie en interview tot de uiteindelijke montage: de volledige productie blijft in één hand voor een optimaal, authentiek resultaat.</p>
+                
+                <div class="about-art-visual">
+                    <img src="over-horecast.jpg" alt="Studio Horecast">
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Contact -->
     <section id="contact" class="container">
-        <h2 class="section-title">Samenwerken met <span>Horecast</span>?</h2>
-        <div class="contact-grid">
+        <div class="contact-art-layout">
             
-            <!-- Contactgegevens -->
-            <div class="contact-info">
-                <h3>Contactgegevens</h3>
+            <div class="contact-art-info">
+                <h3>Let's<br>Build The<br>Narrative.</h3>
                 <p>Heb je een project, een brand story die verteld moet worden, of wil je sparren over een videoconcept? Neem direct contact op.</p>
-                <ul class="contact-details">
-                    <li><strong>Contact:</strong> Marco van Davenhorst</li>
-                    <li><strong>E-mail:</strong> <a href="mailto:marco@horecast.nl">marco@horecast.nl</a></li>
-                    <li><strong>Telefoon:</strong> <a href="tel:0620645044">06-20645044</a></li>
-                    <li><strong>Website:</strong> <a href="https://horecast.nl" target="_blank">horecast.nl</a></li>
+                
+                <ul class="contact-art-details-list">
+                    <li>
+                        <strong>Creative Director</strong>
+                        <span>Marco van Davenhorst</span>
+                    </li>
+                    <li>
+                        <strong>Secure Line</strong>
+                        <a href="mailto:marco@horecast.nl">marco@horecast.nl</a>
+                    </li>
+                    <li>
+                        <strong>Direct Call</strong>
+                        <a href="tel:0620645044">06-20645044</a>
+                    </li>
+                    <li>
+                        <strong>HQ</strong>
+                        <a href="https://horecast.nl" target="_blank">horecast.nl</a>
+                    </li>
                 </ul>
             </div>
 
-            <!-- Contactformulier gekoppeld aan Web3Forms -->
-            <div class="contact-box">
+            <!-- Contactformulier -->
+            <div class="contact-art-box">
                 <form action="https://api.web3forms.com/submit" method="POST">
                     
-                    <!-- Jouw persoonlijke access key -->
                     <input type="hidden" name="access_key" value="4154a91b-141e-48e4-a770-eba27ea4d38d">
-                    
-                    <!-- Onderwerp en Zendernaam voor in je inbox -->
                     <input type="hidden" name="subject" value="Nieuwe aanvraag via Horecast.nl">
                     <input type="hidden" name="from_name" value="Horecast Contactformulier">
 
-                    <div class="form-group">
-                        <label for="name">Naam / Bedrijf</label>
-                        <input type="text" id="name" name="Naam of Bedrijf" required>
+                    <div class="form-art-group">
+                        <label for="name">01 / Naam of Agent</label>
+                        <input type="text" id="name" name="Naam of Bedrijf" placeholder="Je naam of organisatie..." required>
                     </div>
-                    <div class="form-group">
-                        <label for="email">E-mailadres</label>
-                        <input type="email" id="email" name="Emailadres" required>
+                    <div class="form-art-group">
+                        <label for="email">02 / Email</label>
+                        <input type="email" id="email" name="Emailadres" placeholder="Je e-mailadres..." required>
                     </div>
-                    <div class="form-group">
-                        <label for="message">Je plannen of projectidee</label>
-                        <textarea id="message" name="Bericht of Projectidee" rows="5" placeholder="Vertel ons kort wat voor video of productie je in gedachten hebt..." required></textarea>
+                    <div class="form-art-group">
+                        <label for="message">03 / De Briefing</label>
+                        <textarea id="message" name="Bericht of Projectidee" rows="3" placeholder="Vertel kort wat voor productie of concept je voor ogen hebt..." required></textarea>
                     </div>
                     
-                    <!-- Anti-spam Honeypot -->
                     <input type="text" name="botcheck" style="display: none;">
 
-                    <button type="submit" class="submit-btn">Let's shoot!</button>
+                    <button type="submit" class="submit-art-btn">Start Production _</button>
                 </form>
             </div>
 
@@ -518,7 +653,8 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Horecast - Marco van Davenhorst. Alle rechten voorbehouden.</p>
+        <span>&copy; 2026 HORECAST / MARCO VAN DAVENHORST</span>
+        <span>ALL RIGHTS RESERVED // STAGE_MAIN</span>
     </footer>
 
 </body>
