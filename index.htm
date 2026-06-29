@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Horecast | Authentic Creative Content</title>
     
-    <!-- Premium Fonts voor een rauwe, redactionele & cinematische vibe -->
+    <!-- Premium Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;700&family=Space+Mono&display=swap" rel="stylesheet">
@@ -22,7 +22,6 @@
             --bg-deep: #05070a;      /* Absoluut bioscoopzwart */
             --bg-surface: #0c1017;   /* Subtiel lichter zwart voor diepte */
             --accent: #f59e0b;       /* Culinair / Set-goud */
-            --accent-dim: rgba(245, 158, 11, 0.15);
             --text-main: #f8fafc;
             --text-dark: #475569;
             --font-display: 'Space Grotesk', sans-serif;
@@ -44,7 +43,7 @@
 
         /* Navigatie: Stark, Minimal & Architectonisch */
         header {
-            background: rgba(255, 255, 255, 0.99);
+            background: #ffffff;
             padding: 1.5rem 4rem;
             position: sticky;
             top: 0;
@@ -58,6 +57,12 @@
             align-items: center;
             max-width: 1600px;
             margin: 0 auto;
+            width: 100%;
+        }
+
+        nav .logo-container {
+            display: flex;
+            align-items: center;
         }
 
         nav .logo-img {
@@ -88,58 +93,74 @@
             font-weight: bold;
         }
 
-        /* Hero: De "Framing Viewport" - Alsof je door een lens kijkt */
+        /* Hamburger Menu Button voor Mobiel */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 18px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 110;
+        }
+
+        .menu-toggle span {
+            width: 100%;
+            height: 2px;
+            background-color: #000;
+            transition: all 0.3s ease;
+        }
+
+        /* Hero: De "Framing Viewport" - Robuust opgebouwd */
         .hero {
             position: relative;
-            height: 95vh;
-            min-height: 700px;
+            min-height: 90vh;
             display: flex;
-            align-items: flex-end;
-            padding: 6rem 4rem;
-            background: linear-gradient(to top, rgba(5,7,10,1) 15%, rgba(5,7,10,0.4) 100%), 
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 4rem;
+            background: linear-gradient(to top, rgba(5,7,10,1) 30%, rgba(5,7,10,0.5) 100%), 
                         url('hero-horecast.jpg');
             background-size: cover;
             background-position: center;
         }
 
-        /* Abstracte camera overlays voor artwork gevoel */
-        .hero::before {
-            content: '[ REC • 4K ]';
-            position: absolute;
-            top: 4rem;
-            left: 4rem;
+        /* Camera overlay indicators nu netjes in een flex-balk */
+        .hero-meta-top {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
             font-family: var(--font-mono);
-            color: var(--accent);
-            font-size: 0.85rem;
-            letter-spacing: 3px;
-        }
-
-        .hero::after {
-            content: 'STORY_01 // 2026';
-            position: absolute;
-            top: 4rem;
-            right: 4rem;
-            font-family: var(--font-mono);
-            color: rgba(255,255,255,0.4);
             font-size: 0.85rem;
             letter-spacing: 2px;
+            margin-bottom: 4rem;
+        }
+
+        .hero-meta-top .rec {
+            color: var(--accent);
+        }
+
+        .hero-meta-top .time {
+            color: rgba(255,255,255,0.4);
         }
 
         .hero-content {
-            max-width: 1000px;
-            position: relative;
-            z-index: 10;
+            max-width: 900px;
+            width: 100%;
+            margin-top: auto;
         }
 
         .hero h1 {
-            font-size: 8rem;
+            font-size: 7rem;
             font-weight: 700;
-            line-height: 0.85;
-            letter-spacing: -0.05em;
+            line-height: 0.9;
+            letter-spacing: -0.04em;
             text-transform: uppercase;
             margin-bottom: 2rem;
             color: transparent;
-            -webkit-text-stroke: 1px rgba(255,255,255,0.8);
+            -webkit-text-stroke: 1px rgba(255,255,255,0.85);
         }
 
         .hero .tagline {
@@ -147,17 +168,17 @@
             font-size: 1rem;
             color: var(--accent);
             text-transform: uppercase;
-            letter-spacing: 6px;
+            letter-spacing: 5px;
             margin-bottom: 1.5rem;
             display: block;
         }
 
         .hero p {
-            font-size: 1.5rem;
-            color: #94a3b8;
+            font-size: 1.35rem;
+            color: #cbd5e1;
             max-width: 650px;
             font-weight: 300;
-            line-height: 1.5;
+            line-height: 1.6;
             margin-bottom: 3rem;
         }
 
@@ -182,7 +203,7 @@
             transform: translateY(-3px);
         }
 
-        /* Brands Marquee / Lopende band stijl */
+        /* Brands Marquee */
         .clients-section {
             background: #000;
             padding: 3rem 0;
@@ -209,7 +230,7 @@
         /* Secties algemeen */
         .container {
             max-width: 1400px;
-            margin: 14rem auto;
+            margin: 12rem auto;
             padding: 0 4rem;
         }
 
@@ -240,30 +261,28 @@
             letter-spacing: 2px;
         }
 
-        /* Portfolio Gallery: Asymmetrische Expositie indeling */
+        /* Portfolio Gallery: Fixed Asymmetric Layout */
         .portfolio-art-grid {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            gap: 4rem;
+            display: flex;
+            flex-direction: column;
+            gap: 6rem;
         }
 
         .art-card {
-            grid-column: span 6;
+            width: 100%;
+            max-width: 750px;
             position: relative;
             background: var(--bg-surface);
             transition: all 0.5s ease;
+            align-self: flex-start;
         }
 
-        /* Verspringen van de kaarten voor een gallery look */
-        .art-card:nth-child(2) {
-            grid-column: span 5;
-            grid-column-start: 8;
-            margin-top: 8rem;
-        }
-
-        .art-card:nth-child(3) {
-            grid-column: span 7;
-            margin-top: -4rem;
+        @media (min-width: 1025px) {
+            .art-card-offset {
+                align-self: flex-end;
+                margin-top: 2rem;
+                margin-bottom: 2rem;
+            }
         }
 
         .art-video-frame {
@@ -288,7 +307,7 @@
         }
 
         .art-card-details {
-            padding: 2rem 0;
+            padding: 1.5rem 0;
         }
 
         .art-card-num {
@@ -309,10 +328,11 @@
         .art-card-details p {
             color: #64748b;
             font-weight: 300;
-            max-width: 450px;
+            max-width: 550px;
+            font-size: 1rem;
         }
 
-        /* Over Horecast: Rauw Redactioneel */
+        /* Over Horecast */
         .about-art-layout {
             display: grid;
             grid-template-columns: 1fr 1.2fr;
@@ -361,7 +381,7 @@
             filter: grayscale(0%);
         }
 
-        /* Contact & Rauw Typografisch Formulier */
+        /* Contact & Formulier */
         .contact-art-layout {
             display: grid;
             grid-template-columns: 1fr 1.3fr;
@@ -430,6 +450,7 @@
             font-size: 1.25rem;
             font-family: var(--font-display);
             transition: all 0.3s ease;
+            border-radius: 0;
         }
 
         .form-art-group input:focus, .form-art-group textarea:focus {
@@ -469,23 +490,76 @@
             color: var(--text-dark);
         }
 
-        /* Responsive Design */
-        @media (max-width: 1100px) {
+        /* ==========================================================================
+           ROBUUST RESPONSIVE DESIGN (Breekt gegarandeerd niet meer op mobiel)
+           ========================================================================== */
+        @media (max-width: 1024px) {
             .portfolio-art-grid { display: flex; flex-direction: column; gap: 6rem; }
-            .art-card, .art-card:nth-child(2), .art-card:nth-child(3) { grid-column: span 12; margin-top: 0; }
+            .art-card, .art-card-offset { max-width: 100%; }
             .about-art-layout, .contact-art-layout { grid-template-columns: 1fr; gap: 4rem; }
             .about-art-sticky-title { position: static; }
             .hero h1 { font-size: 5rem; }
         }
 
         @media (max-width: 768px) {
-            header { padding: 1.5rem 2rem; }
-            nav { flex-direction: column; gap: 1rem; }
-            .hero { padding: 4rem 2rem; }
-            .hero h1 { font-size: 3.5rem; }
-            .container { margin: 8rem auto; padding: 0 2rem; }
+            header { padding: 1.2rem 2rem; }
+            
+            /* Activeer Hamburger Knop */
+            .menu-toggle { display: flex; }
+
+            /* Transformeer menu naar strakke full-screen overlay op mobiel */
+            nav ul {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: #ffffff;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 3rem;
+                z-index: 105;
+                opacity: 0;
+                pointer-events: none;
+                transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+                transform: translateY(-20px);
+            }
+
+            nav ul.mobile-open {
+                opacity: 1;
+                pointer-events: auto;
+                transform: translateY(0);
+            }
+
+            nav ul li a {
+                font-size: 1.6rem;
+                color: #000;
+            }
+
+            /* Hamburger naar 'X' transformatie */
+            .menu-toggle.active span:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+            .menu-toggle.active span:nth-child(2) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            /* Hero Mobiele Aanpassingen */
+            .hero { padding: 3rem 2rem; min-height: auto; height: auto; }
+            .hero-meta-top { margin-bottom: 2rem; font-size: 0.75rem; }
+            .hero h1 { font-size: 3.5rem; line-height: 1; margin-bottom: 1.5rem; }
+            .hero .tagline { font-size: 0.9rem; letter-spacing: 3px; }
+            .hero p { font-size: 1.1rem; margin-bottom: 2.5rem; }
+            
+            /* Container & Typografie algemeen op mobiel */
+            .container { margin: 6rem auto; padding: 0 2rem; }
             .section-header-art { flex-direction: column; align-items: flex-start; gap: 1rem; }
-            .section-title-art { font-size: 2.8rem; }
+            .section-title-art { font-size: 2.6rem; }
+            .about-art-sticky-title h2 { font-size: 2.8rem; }
+            .contact-art-info h3 { font-size: 2.5rem; }
+            .contact-art-box { margin-top: 2rem; }
+            
             footer { flex-direction: column; gap: 1rem; padding: 4rem 2rem; }
         }
     </style>
@@ -517,6 +591,12 @@
 
     <!-- Hero / Intro -->
     <section id="home" class="hero">
+        <!-- Gefixte camera metadata top bar (Loopt nooit meer door tekst heen) -->
+        <div class="hero-meta-top">
+            <span class="rec">[ REC • 4K ]</span>
+            <span class="time">STORY_01 // 2026</span>
+        </div>
+        
         <div class="hero-content">
             <span class="tagline">Authentic Creative Content</span>
             <h1>Horecast</h1>
@@ -535,7 +615,7 @@
         </div>
     </section>
 
-    <!-- Portfolio Section - FIXED ART GALLERY LAYOUT -->
+    <!-- Portfolio Section -->
     <section id="werk" class="container">
         <div class="section-header-art">
             <h2 class="section-title-art">Geselecteerd <span>Werk</span></h2>
@@ -556,7 +636,7 @@
                 </div>
             </div>
 
-            <!-- Project 2 (This one gets the artistic offset on desktop) -->
+            <!-- Project 2 -->
             <div class="art-card art-card-offset">
                 <div class="art-video-frame">
                     <img src="portfolio-foodservice.jpg" alt="Foodservice" class="art-img">
@@ -641,7 +721,7 @@
                         <label for="name">01 / Naam of Agent</label>
                         <input type="text" id="name" name="Naam of Bedrijf" placeholder="Je naam of organisatie..." required>
                     </div>
-                    <div class="form-art-group">
+                    <div class="form-group-art form-art-group">
                         <label for="email">02 / Email</label>
                         <input type="email" id="email" name="Emailadres" placeholder="Je e-mailadres..." required>
                     </div>
@@ -664,6 +744,24 @@
         <span>&copy; 2026 HORECAST / MARCO VAN DAVENHORST</span>
         <span>ALL RIGHTS RESERVED // STAGE_MAIN</span>
     </footer>
+
+    <!-- JavaScript voor het mobiele menu -->
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navMenu.classList.toggle('mobile-open');
+        });
+
+        function toggleMenu() {
+            if (window.innerWidth <= 768) {
+                menuToggle.classList.remove('active');
+                navMenu.classList.remove('mobile-open');
+            }
+        }
+    </script>
 
 </body>
 </html>
