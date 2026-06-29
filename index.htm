@@ -80,12 +80,11 @@
             padding-bottom: 4px;
         }
 
-        /* Hero / Showreel Sectie met JE EIGEN AFBEELDING */
+        /* Hero / Showreel Sectie met eigen afbeelding */
         .hero {
             position: relative;
             padding: 9rem 2rem;
             text-align: center;
-            /* Hier is je eigen afbeelding gekoppeld met een donkere laag eroverheen voor de leesbaarheid */
             background: linear-gradient(180deg, rgba(15,23,42,0.85) 0%, rgba(15,23,42,1) 100%), 
                         url('hero-horecast.jpg');
             background-size: cover;
@@ -384,7 +383,6 @@
 </head>
 <body>
 
-    <!-- Header & Navigatie met Logo-afbeelding -->
     <header>
         <nav>
             <div class="logo-container">
@@ -399,7 +397,6 @@
         </nav>
     </header>
 
-    <!-- Hero / Intro -->
     <section id="home" class="hero">
         <h1>Horecast</h1>
         <div class="tagline">Authentic Creative Content</div>
@@ -407,7 +404,6 @@
         <a href="#werk" class="cta-button">Bekijk ons werk</a>
     </section>
 
-    <!-- Grote merken / Vertrouwen sectie -->
     <section class="clients-section">
         <p>Ervaring met toonaangevende merken zoals</p>
         <div class="client-logos">
@@ -415,12 +411,10 @@
         </div>
     </section>
 
-    <!-- Portfolio Grid -->
     <section id="werk" class="container">
         <h2 class="section-title">Recent <span>Werk</span></h2>
         <div class="portfolio-grid">
             
-            <!-- Video Project 1 -->
             <div class="video-card">
                 <div class="video-placeholder" style="background-image: url('https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80'); background-size: cover; background-position: center;"></div>
                 <div class="video-info">
@@ -429,7 +423,6 @@
                 </div>
             </div>
 
-            <!-- Video Project 2 -->
             <div class="video-card">
                 <div class="video-placeholder" style="background-image: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=600&q=80'); background-size: cover; background-position: center;"></div>
                 <div class="video-info">
@@ -438,7 +431,6 @@
                 </div>
             </div>
 
-            <!-- Video Project 3 -->
             <div class="video-card">
                 <div class="video-placeholder" style="background-image: url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=600&q=80'); background-size: cover; background-position: center;"></div>
                 <div class="video-info">
@@ -450,14 +442,13 @@
         </div>
     </section>
 
-    <!-- Over Horecast -->
     <section id="over" class="container">
         <div class="about-content">
             <div class="about-text">
                 <h2 style="margin-bottom: 1.5rem; font-size: 2.2rem;">Storytelling met een <span>journalistieke blik</span></h2>
                 <h3>Wie we zijn</h3>
                 <p>Horecast combineert jarenlange professionele ervaring als camera-journalist met een scherp oog voor ijzersterke content. Hoewel circa 90% van ons werk zich afspeelt in de dynamische wereld van foodservice en gastronomie, vertalen we diezelfde creativiteit en hoge productiestandaard moeiteloos naar corporate merkverhalen.</p>
-                <p>Met ervaring voor uiteenlopende A-merken—van grote spelers in de hospitality tot multinationals zoals KLM og Alcon—vangen we altijd de juiste toon. Van regie en interview tot de uiteindelijke montage: de volledige productie blijft in één hand voor een optimaal, authentiek resultaat.</p>
+                <p>Met ervaring voor uiteenlopende A-merken—van grote spelers in de hospitality tot multinationals zoals KLM en Alcon—vangen we altijd de juiste toon. Van regie en interview tot de uiteindelijke montage: de volledige productie blijft in één hand voor een optimaal, authentiek resultaat.</p>
             </div>
             <div style="border-radius: 8px; overflow: hidden; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.5);">
                 <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=600&q=80" alt="Camera Productie" style="width: 100%; display: block;">
@@ -465,12 +456,10 @@
         </div>
     </section>
 
-    <!-- Contact -->
     <section id="contact" class="container">
         <h2 class="section-title">Samenwerken met <span>Horecast</span>?</h2>
         <div class="contact-grid">
             
-            <!-- Contactgegevens -->
             <div class="contact-info">
                 <h3>Contactgegevens</h3>
                 <p>Heb je een project, een brand story die verteld moet worden, of wil je sparren over een videoconcept? Neem direct contact op.</p>
@@ -482,24 +471,29 @@
                 </ul>
             </div>
 
-            <!-- Contactformulier -->
             <div class="contact-box">
-                <form action="#" method="POST">
+                <form action="https://api.web3forms.com/submit" method="POST">
+                    
+                    <input type="hidden" name="access_key" value="4154a91b-141e-48e4-a770-eba27ea4d38d">
+                    
+                    <input type="hidden" name="subject" value="Nieuwe aanvraag via Horecast.nl">
+                    <input type="hidden" name="from_name" value="Horecast Contactformulier">
+
                     <div class="form-group">
                         <label for="name">Naam / Bedrijf</label>
-                        <input type="text" id="name" name="name" required>
+                        <input type="text" id="name" name="Naam of Bedrijf" required>
                     </div>
                     <div class="form-group">
                         <label for="email">E-mailadres</label>
-                        <input type="email" id="email" name="email" required>
+                        <input type="email" id="email" name="Emailadres" required>
                     </div>
                     <div class="form-group">
                         <label for="message">Je plannen of projectidee</label>
-                        <textarea id="message" name="message" rows="5" placeholder="Vertel ons kort wat voor video of productie je in gedachten hebt..." required></textarea>
+                        <textarea id="message" name="Bericht of Projectidee" rows="5" placeholder="Vertel ons kort wat voor video of productie je in gedachten hebt..." required></textarea>
                     </div>
-                    <div class="form-group" style="display: none;">
-                        <input type="text" name="_honey" style="display:none">
-                    </div>
+                    
+                    <input type="text" name="botcheck" style="display: none;">
+
                     <button type="submit" class="submit-btn">Let's shoot!</button>
                 </form>
             </div>
@@ -507,7 +501,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; 2026 Horecast - Marco van Davenhorst. Alle rechten voorbehouden.</p>
     </footer>
