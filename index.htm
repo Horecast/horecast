@@ -498,11 +498,19 @@
             <div class="logo-container">
                 <img src="horecastAsset 31x.png" alt="Horecast Logo" class="logo-img">
             </div>
-            <ul>
-                <li><a href="#home" class="active">// Home</a></li>
-                <li><a href="#werk">// Portfolio</a></li>
-                <li><a href="#over">// Over ons</a></li>
-                <li><a href="#contact">// Contact</a></li>
+            
+            <!-- Hamburger Menu Button voor Mobiel -->
+            <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- Het Navigatie Menu -->
+            <ul id="navMenu">
+                <li><a href="#home" class="active" onclick="toggleMenu()">// Home</a></li>
+                <li><a href="#werk" onclick="toggleMenu()">// Portfolio</a></li>
+                <li><a href="#over" onclick="toggleMenu()">// Over ons</a></li>
+                <li><a href="#contact" onclick="toggleMenu()">// Contact</a></li>
             </ul>
         </nav>
     </header>
